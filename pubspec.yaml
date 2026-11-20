@@ -53,6 +53,12 @@ dev_dependencies:
   hive_ce_generator: ^1.12.1
   build_runner: ^2.17.1
 
+dependency_overrides:
+  # path_provider_android 2.3.x introduces a transitive dependency on `jni`,
+  # which requires Android SDK CMake/NDK (x86-64 only on Linux). Pin to 2.2.x
+  # so Android builds succeed on ARM64 Linux hosts.
+  path_provider_android: ">=2.2.0 <2.3.0"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
